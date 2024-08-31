@@ -17,7 +17,7 @@ export default function Home() {
       <div className="flex flex-1 items-center justify-between p-12">
         <div className="flex flex-col items-start text-left w-4/4">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-[#156095] mb-4">
-            Practice Presenting.
+            SlideFlow
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 mb-4">
             Transform your presentation prep with ease.
