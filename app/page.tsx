@@ -1,22 +1,36 @@
+"use client";
+
 import Header from "@/app/header";
+import Popup from '@/app/popup';
+import { useState } from 'react';
 
 export default function Home() {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  const showPopup = () => setIsPopupVisible(true);
+  const hidePopup = () => setIsPopupVisible(false);
+
   return (
-    <main className="min-h-screen flex flex-col items-center bg-white">
-      <Header />
-      <div className="flex flex-col items-center text-center mt-20">
-        <h2 className="text-5xl font-bold text-blue-700 mb-4">Practice Presenting.</h2>
-        <p className="text-xl text-gray-700 mb-8">Transform your presentation prep with ease.</p>
-        <button className="px-6 py-3 text-lg bg-white text-blue-700 border-2 border-blue-700 rounded-lg hover:bg-blue-700 hover:text-white">
-          Start Presenting
-        </button>
-      </div>
-      <div className="relative mt-20">
-        <div className="absolute inset-0 bg-blue-700 opacity-50 rounded-lg shadow-lg" style={{ width: 200, height: 150 }}></div>
-        <div className="relative p-6">
-          <div className="bg-blue-500 w-48 h-32 rounded-lg shadow-lg"></div>
+    <main className="flex min-h-screen flex-col bg-white">
+      <Header onSignUpClick={showPopup} />
+      <title>SlideFlow</title>
+      <div className="flex flex-1 items-center justify-between p-12">
+        <div className="flex flex-col items-start text-left w-4/4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-[#156095] mb-4">
+            Practice Presenting.
+          </h2>
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 mb-4">
+            Transform your presentation prep with ease.
+          </p>
+          <button
+            className="px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg md:text-xl bg-white text-[#156095] border-2 border-[#156095] rounded-3xl hover:bg-[#156095] hover:text-white"
+            onClick={showPopup}
+          >
+            Start Presenting
+          </button>
         </div>
       </div>
+      <Popup isVisible={isPopupVisible} onClose={hidePopup} />
     </main>
   );
 }
